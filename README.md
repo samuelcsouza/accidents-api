@@ -9,3 +9,15 @@ API para obter dados de acidentes em rodovias federais usando o framework socket
 ## Dados
 
 Os dados utilizados são de fonte pública e disponibilizados pela Polícia Rodoviária Federal e estão disponíveis neste [link](https://www.gov.br/prf/pt-br/acesso-a-informacao/dados-abertos/dados-abertos-acidentes). Para este estudo, foi utilizada a base que está agrupada por ocorrência, dado algum ano qualquer (desde que haja as colunas de *latitude* e *longitude*).
+
+## Virtualenv
+
+```bash
+# Create
+virtualenv venv -p pypy3
+
+# Activate
+source venv/bin/activate
+```
+
+<!-- pypy3 -m pip install <package> -->
