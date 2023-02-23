@@ -19,3 +19,5 @@ virtualenv venv -p pypy3
 # Activate
 source venv/bin/activate
 ```
+
+<!-- pypy3 -m pip install <package> -->
