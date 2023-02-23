@@ -1,7 +1,7 @@
 from socketify import Request, Response
 from socketify_app import app, router
 from database import get_database
-
+from utils.api_errors import NotFound
 
 @router.get("/")
 def list_accidents(res: Response, req: Request):
@@ -25,6 +25,9 @@ def get_by_id(res: Response, req: Request):
 
     docs = _db.find_one(_query, _columns_to_exclude)
 
+    if not docs:
+        raise NotFound
+
     res.end(docs)
 
 
@@ -39,6 +42,9 @@ def get_by_city(res: Response, req: Request):
 
     docs = _db.find(_query, _columns_to_exclude)
 
+    if not docs:
+        raise NotFound
+
     res.end(list(docs))
 
 
@@ -52,5 +58,8 @@ def get_by_state(res: Response, req: Request):
     _columns_to_exclude = {"_id": False, "location": False}
 
     docs = _db.find(_query, _columns_to_exclude)
+
+    if not docs:
+        raise NotFound
 
     res.end(list(docs))
