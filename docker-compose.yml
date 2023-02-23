@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  mongo-db:
+    image: mongo:4.0
+    container_name: accidents_db
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongoadmin
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+  
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    container_name: accidents_app
+    environment:
+      - MONGO_USER=mongoadmin
+      - MONGO_PWD=secret
+    command: ["pypy3", "./app/main.py"]
