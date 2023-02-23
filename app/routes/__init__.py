@@ -1,1 +1,1 @@
-import routes.v1.endpoints.hello_world
+import routes.v1.endpoints.accidents
