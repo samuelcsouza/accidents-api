@@ -6,7 +6,7 @@
 
 An API to get crash data from federal highways in Brazil using socketify.py and mongoDB.
 
-## Dados
+## Data
 
 The data used are from a public source and make available by the Federal Highway Police (PRF) and are available at this [link](https://www.gov.br/prf/pt-br/acesso-a-informacao/dados-abertos/dados-abertos-acidentes). For this case, we used the base that groupped by occurrence, given any year (as long as the columns *latitude* and *longitude* exists).
 
