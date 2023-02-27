@@ -4,7 +4,7 @@ from database import get_database
 from utils.api_errors import NotFound
 
 @router.get("/")
-def list_accidents(res: Response, req: Request):
+def list_accidents(res: Response, req: Request, user=None):
     _db = get_database()["accidents"]
     _query = {}
     _columns_to_exclude = {"_id": False, "location": False}
@@ -15,7 +15,7 @@ def list_accidents(res: Response, req: Request):
 
 
 @router.get("/:id")
-def get_by_id(res: Response, req: Request):
+def get_by_id(res: Response, req: Request, user=None):
     _db = get_database()["accidents"]
 
     paramter_id = req.get_parameter(0)
@@ -32,7 +32,7 @@ def get_by_id(res: Response, req: Request):
 
 
 @router.get("/city/:city")
-def get_by_city(res: Response, req: Request):
+def get_by_city(res: Response, req: Request, user=None):
     _db = get_database()["accidents"]
 
     parameter_city = req.get_parameter(0)
@@ -49,7 +49,7 @@ def get_by_city(res: Response, req: Request):
 
 
 @router.get("/state/:state")
-def get_by_state(res: Response, req: Request):
+def get_by_state(res: Response, req: Request, user=None):
     _db = get_database()["accidents"]
 
     parameter_city = req.get_parameter(0)
